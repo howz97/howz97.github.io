@@ -49,7 +49,7 @@ Software Engineer #h(1fr) Beijing \
 - [Golang] #link("https://github.com/monographdb/tidb")[github.com/monographdb/tidb] Develop *EloqDM* based on TiDB-DM. EloqDM can be used as the data migration tool for EloqSQL.
 - [Golang] #link("https://github.com/monographdb/codis")[github.com/monographdb/codis] Develop *Codis* to make it compatible with EloqKV
 - [Golang] #link("https://github.com/monographdb/juicefs")[github.com/monographdb/juicefs] Develop *JuiceFS* to store metadata in EloqKV.
-- [Shell] Build the CI release workflow of EloqSQL and EloqKV based on concourse
+- [Shell] Build the CI release workflow of EloqSQL and EloqKV based on Concourse
 
 #link("https://www.tap4fun.com/")[*Tap4fun*] #h(1fr) 2020/07 -- 2021/12 \
 Golang Developer #h(1fr) Chengdu \
@@ -59,10 +59,10 @@ Participating the development of the server side of games "Age of Apes" and "Inv
 #chiline()
 
 *TinyKV* #link("https://github.com/howz97/tinykv")[github.com/howz97/tinykv] \
-Distributed scalable key/value storage which data is sharded into multiple raft groups. Cluster scale is happening with raft configuration change and won't block data access. Transaction is implemented based on MVCC and thus have snapshot isolation level. 
+Distributed scalable key/value storage that data is sharded into multiple raft groups. Cluster scale is happening with raft configuration change and won't block data access. Transaction is implemented based on MVCC and thus have snapshot isolation level. 
 
 *MIT6.824* #link("https://github.com/howz97/mit6.824")[github.com/howz97/mit6.824] (private repo) \
-Distributed scalable key/value storage which data is sharded into multiple raft groups. Cluster scale is triggered by a HA master cluster and migrate shard in a blocking way.
+Distributed scalable key/value storage that data is sharded into multiple raft groups. Cluster scale is triggered by a HA master cluster and migrate shard in a blocking way.
 
 *CMU15-445* #link("https://github.com/howz97/bustub")[github.com/howz97/bustub] \
 A lab-level relational database.
@@ -84,7 +84,7 @@ A algorithm library written in golang, covering the book "Algorithms" by Sedgewi
 - binary heap, leftist heap, binomial heap
 
 *LSM-Tree* #link("https://github.com/howz97/lsm-tree")[github.com/howz97/lsm-tree] \
-Lightweight key/value storage engine based on lsm-tree. Implemented basic compaction, WAL, MVCC based transaction, optional serializable snapshot isolation.
+Lightweight key/value storage engine based on lsm-tree. Implemented basic compaction, WAL, MVCC based transaction, and serializable snapshot isolation.
 
 *Bitcask* #link("https://github.com/howz97/bitcask")[github.com/howz97/bitcask] \
 Lightweight key/value storage engine based on bitcask, written in async rust.
