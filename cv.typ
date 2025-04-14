@@ -27,7 +27,7 @@ zhanghao997\@qq.com |
 == Skills
 #chiline()
 
-Programing Language: Rust, Golang, C++ \
+Programing Language: C++, Rust, Golang \
 Tech skills: Algorithm, Raft, Database  \
 
 == Education
