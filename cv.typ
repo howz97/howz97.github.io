@@ -4,20 +4,20 @@
 
 // Uncomment the following lines to adjust the size of text
 // The recommend resume text size is from `10pt` to `12pt`
-#set text(
-  size: 12pt,
-)
+#set text(size: 12pt)
 
 // Feel free to change the margin below to best fit your own CV
-#set page(
-  margin: (x: 0.9cm, y: 1.3cm),
-)
+#set page(margin: (x: 0.9cm, y: 1.3cm))
 
 // For more customizable options, please refer to official reference: https://typst.app/docs/reference/
 
 #set par(justify: true)
 
-#let chiline() = {v(-3pt); line(length: 100%); v(-5pt)}
+#let chiline() = {
+  v(-3pt)
+  line(length: 100%)
+  v(-5pt)
+}
 
 = Hao Zhang (张豪)
 
@@ -28,7 +28,7 @@ zhanghao997\@qq.com |
 #chiline()
 
 Programing Language: C++, Rust, Golang \
-Tech skills: Algorithm, Raft, Database  \
+Tech skills: Algorithm, Raft, Database \
 
 == Education
 #chiline()
@@ -41,7 +41,7 @@ Bachelor of software engineering #h(1fr) Baoding \
 
 #link("https://www.eloqdata.com/")[*EloqData*] #h(1fr) Since 2022/11 \
 Software Engineer #h(1fr) Beijing \
-- [C++] Develop the underlying KV storage engine *EloqStore* for EloqSQL and EloqKV. EloqStore adopts a COW-B+Tree structure for data storage to achieve stable low-latency read performance, and combines io_uring with coroutines to maximize NVMe SSD performance.
+- [C++] Develop the underlying KV storage engine *EloqStore* for EloqSQL and EloqKV. EloqStore adopts a COW-B+Tree structure for data storage to achieve stable low-latency read performance, and combines io_uring with coroutines to maximize NVMe SSD performance. Supports cloud mode, stores data in S3, and uses local disks as cache.
 - [C++] Develop #link("https://www.eloqdata.com/docs/monosql-mysql-diff")[*MonoSQL*]. MonoSQL is a stateless sql wrapper for DynamoDB, which can be regarded as a middleware between MariaDB and DynamoDB.
 - [C++] Build *EloqCDC* from scratch. EloqCDC is used to replicate incremental data from #link("https://www.eloqdata.com/eloqsql/introduction")[EloqSQL] to downstream platform like OLAP/Kafka
 - [C++] Build *EloqLoad* from scratch. A tool used for importing data at TB scale to EloqSQL quickly
@@ -59,7 +59,7 @@ Participating the development of the server side of games "Age of Apes" and "Inv
 #chiline()
 
 *TinyKV* #link("https://github.com/howz97/tinykv")[github.com/howz97/tinykv] \
-Distributed scalable key/value storage that data is sharded into multiple raft groups. Cluster scale is happening with raft configuration change and won't block data access. Transaction is implemented based on MVCC and thus have snapshot isolation level. 
+Distributed scalable key/value storage that data is sharded into multiple raft groups. Cluster scale is happening with raft configuration change and won't block data access. Transaction is implemented based on MVCC and thus have snapshot isolation level.
 
 *MIT6.824* #link("https://github.com/howz97/mit6.824")[github.com/howz97/mit6.824] (private repo) \
 Distributed scalable key/value storage that data is sharded into multiple raft groups. Cluster scale is triggered by a HA master cluster and migrate shard in a blocking way.

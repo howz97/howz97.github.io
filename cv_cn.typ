@@ -4,20 +4,20 @@
 
 // Uncomment the following lines to adjust the size of text
 // The recommend resume text size is from `10pt` to `12pt`
-#set text(
-  size: 12pt,
-)
+#set text(size: 12pt)
 
 // Feel free to change the margin below to best fit your own CV
-#set page(
-  margin: (x: 0.9cm, y: 1.3cm),
-)
+#set page(margin: (x: 0.9cm, y: 1.3cm))
 
 // For more customizable options, please refer to official reference: https://typst.app/docs/reference/
 
 #set par(justify: true)
 
-#let chiline() = {v(-3pt); line(length: 100%); v(-5pt)}
+#let chiline() = {
+  v(-3pt)
+  line(length: 100%)
+  v(-5pt)
+}
 
 = 张豪
 
@@ -28,7 +28,7 @@ zhanghao997\@qq.com |
 #chiline()
 
 编程语言: C++, Rust, Golang \
-技能: 算法, Raft, 数据库  \
+技能: 算法, Raft, 数据库 \
 
 == 教育背景
 #chiline()
@@ -41,7 +41,7 @@ zhanghao997\@qq.com |
 
 #link("https://www.eloqdata.com/")[*EloqData*] #h(1fr) 2022/11 至今 \
 软件开发 #h(1fr) 北京 \
-- [C++] 开发用于 #link("https://www.eloqdata.com/eloqsql/introduction")[EloqSQL] 与 EloqKV 的底层KV存储引擎 *EloqStore*。 EloqStore 采用 COW B+Tree 结构存储数据以实现低延迟的读与高效的批量写, 组合 io_uring 与 coroutines 以充分利用 NVMe SSD
+- [C++] 实现用于 #link("https://www.eloqdata.com/eloqsql/introduction")[EloqSQL] 与 EloqKV 的底层KV存储引擎 *EloqStore*。 EloqStore 采用 COW B+Tree 结构存储数据以实现低延迟的读与高效的批量写, 组合 io_uring 与 coroutines 以充分利用 NVMe SSD。支持cloud模式, 数据存储到s3, 本地磁盘作为缓存。
 - [C++] 开发 #link("https://www.eloqdata.com/docs/monosql-mysql-diff")[*MonoSQL*]. MonoSQL 是 MariaDB 与 DynamoDB 的无状态中间层，将 DynamoDB 封装为 MariaDB 的存储引擎。
 - [C++] 开发CDC工具. 用于从 EloqSQL 到其他分析系统(OLAP/Kafka)的增量复制
 - [C++] 为EloqSQL开发高效数据导入工具，跳过SQL层逻辑，直接向KV层写入
@@ -59,7 +59,7 @@ Golang游戏服务器开发 #h(1fr) 成都 \
 #chiline()
 
 *TinyKV* #link("https://github.com/howz97/tinykv")[github.com/howz97/tinykv] \
-模仿TiKV架构的教学版KV存储引擎， 数据分片后写入多个raft group。 支持不停机集群扩展。 事物基于MVCC 具有snapshot isolation隔离级别. 
+模仿TiKV架构的教学版KV存储引擎， 数据分片后写入多个raft group。 支持不停机集群扩展。 事物基于MVCC 具有snapshot isolation隔离级别.
 
 *MIT6.824* #link("https://github.com/howz97/mit6.824")[github.com/howz97/mit6.824] (private repo) \
 实验也是实现分布式可扩展KV存储，但是在扩展过程中无法访问被迁移的shard。
