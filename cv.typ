@@ -19,16 +19,16 @@
   v(-5pt)
 }
 
+#figure(image("./avatar.png", width: 5%))
+
 = Hao Zhang (张豪)
 
-zhanghao997\@qq.com |
+18111257824 | zhanghao997\@qq.com |
 #link("https://github.com/howz97")[github.com/howz97] | #link("https://www.yuque.com/ha0zhang")[yuque]
 
 == Skills
 #chiline()
-
-Programing Language: C++, Rust, Golang \
-Tech skills: Algorithm, Raft, Database \
+C++, Rust, Golang, Algorithm, Raft, Database
 
 == Education
 #chiline()

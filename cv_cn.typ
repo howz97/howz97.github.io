@@ -19,16 +19,16 @@
   v(-5pt)
 }
 
+#figure(image("./avatar.png", width: 5%))
+
 = 张豪
 
-zhanghao997\@qq.com |
+18111257824 | zhanghao997\@qq.com |
 #link("https://github.com/howz97")[github.com/howz97] | #link("https://www.yuque.com/ha0zhang")[yuque]
 
 == 技能
 #chiline()
-
-编程语言: C++, Rust, Golang \
-技能: 算法, Raft, 数据库 \
+C++, Rust, Golang, 算法, Raft, 数据库
 
 == 教育背景
 #chiline()
