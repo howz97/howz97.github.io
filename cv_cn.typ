@@ -1,4 +1,4 @@
-#show heading: set text(font: "Linux Biolinum")
+#show heading: set text(font: "Noto Sans")
 
 #show link: underline
 
@@ -28,32 +28,33 @@
 
 == 技能
 #chiline()
-C++, Rust, Golang, 算法, Raft, 数据库
+C++, Rust, Golang, 算法, Raft, 数据库, LSM-Tree
 
 == 教育背景
 #chiline()
 
 #link("https://net.ncepu.edu.cn/")[*华北电力大学*] #h(1fr) 2016/09 -- 2020/07 \
-本科 软件工程 #h(1fr) 保定 \
+本科 软件工程 \
 
 == 工作经历
 #chiline()
 
-#link("https://www.eloqdata.com/")[*EloqData*] #h(1fr) 2022/11 至今 \
-软件开发 #h(1fr) 北京 \
-- [C++] 实现用于 #link("https://www.eloqdata.com/eloqsql/introduction")[EloqSQL] 与 EloqKV 的底层KV存储引擎 *EloqStore*。 EloqStore 采用 COW B+Tree 结构存储数据以实现低延迟的读与高效的批量写, 组合 io_uring 与 coroutines 以充分利用 NVMe SSD。支持cloud模式, 数据存储到s3, 本地磁盘作为缓存。
-- [C++] 开发 #link("https://www.eloqdata.com/docs/monosql-mysql-diff")[*MonoSQL*]. MonoSQL 是 MariaDB 与 DynamoDB 的无状态中间层，将 DynamoDB 封装为 MariaDB 的存储引擎。
-- [C++] 开发CDC工具. 用于从 EloqSQL 到其他分析系统(OLAP/Kafka)的增量复制
-- [C++] 为EloqSQL开发高效数据导入工具，跳过SQL层逻辑，直接向KV层写入
-- [Rust] 开发用于EloqSQL与EloqKV的数据库集群管理工具 #link("https://www.eloqdata.com/downloadeloqctl")[*eloqctl*]，实现快速部署与控制
-- [Golang] #link("https://github.com/monographdb/tidb")[github.com/monographdb/tidb] 二次开发 TiDB-DM 以支持向EloqSQL导入数据
-- [Golang] #link("https://github.com/monographdb/codis")[github.com/monographdb/codis] 二次开发 *Codis* 以兼容 EloqKV
-- [Golang] #link("https://github.com/monographdb/juicefs")[github.com/monographdb/juicefs] 二次开发 *JuiceFS* 以支持 EloqKV 作为元数据存储引擎
-- [Shell] 基于 Concourse 实现 EloqSQL 与 EloqKV 的CI流程
+#link("https://www.eloqdata.com/")[*EloqData*] (晨章数据) #h(1fr) 2022/11 -- 现在 \
+数据库开发工程师 #h(1fr) 北京 \
+- 独立实现底层KV存储引擎 *EloqStore*。 EloqStore 采用 COW B+Tree 数据结构以实现稳定低延迟的读与高效的批量写。 COW使得读操作无须加锁。组合boost coroutine与io_uring以实现高效并发，并充分利用 NVMe SSD。实现了coroutine执行调度与并发控制。支持磁盘顺序写与随机写两种模式，生成snapshot。支持cloud模式, 同步存储到s3, 本地SSD作为缓存。读性能远超过RocksDB，最高写入吞吐能达到NVMe SSD的上限(与fio持平)。
+- 独立开发 #link("https://www.eloqdata.com/docs/monosql-mysql-diff")[*MonoSQL*]. MonoSQL 是 MariaDB 与 DynamoDB 的无状态中间层，将 DynamoDB 封装为 MariaDB 的存储引擎。 实现了Repeatable-read与Read-committed两种隔离级别的transaction，二级索引，毫秒级别完成alter table。
+- 独立开发CDC工具，用于从 EloqSQL 到其他分析系统(OLAP/Kafka)或备份数据库的增量实时复制。从Log-Server读取并解码WAL得到key-value修改，然后把key-value解码并转换为SQL语句，最后在下游系统执行此SQL。实现了从mariadb frm解析取得table结构，KV与SQL之间相互转换。
+- 独立开发EloqSQL数据导入工具，跳过SQL层逻辑，直接向KV层(cassandra)写入。类似TiDB Lightning。
+- 用Rust开发EloqSQL与EloqKV的数据库集群管理工具 #link("https://www.eloqdata.com/downloadeloqctl")[*eloqctl*]，实现在非云环境高效部署与控制集群。管理的组件包括EloqSQL,EloqKV,codis,LogServer,Cassandra,Prometheus,Grafana,mysql-exporter,node-exporter,cassandra-collector。
+- #link("https://github.com/monographdb/tidb")[github.com/monographdb/tidb] 二次开发 TiDB-DM 以支持通过SQL语句向EloqSQL导入数据
+- #link("https://github.com/monographdb/codis")[github.com/monographdb/codis] 二次开发 *Codis* 以兼容 EloqKV
+- #link("https://github.com/monographdb/juicefs")[github.com/monographdb/juicefs] 二次开发 *JuiceFS* 以支持 EloqKV 作为元数据存储引擎，优化了redis的 hot-key big-key以发挥分布式多线程redis的优势
+- 基于Concourse实现EloqSQL与EloqKV各种模态组合的自动化编译与发布流程。
 
-#link("https://www.tap4fun.com/")[*Tap4fun*] #h(1fr) 2020/07 -- 2021/12 \
-Golang游戏服务器开发 #h(1fr) 成都 \
-参与 "Age of Apes" 和 "Invasion" 两款游戏的服务器开发
+#link("https://www.tap4fun.com/")[*Tap4fun*] (创人所爱) #h(1fr) 2020/07 -- 2021/12 \
+游戏服务器开发 #h(1fr) 成都 \
+- 参与游戏《Age of Apes》(猿族时代)的服务器端开发，在产品上线以前参与多项功能的实现。项目组被寄予厚望，团队达到百人规模。
+- 参与游戏《Invasion》(战地风暴，当时是公司收入支柱)的服务器端维护和开发。负责实现了"突变体"玩法，攻克了地图刷怪难题。
 
 == 自学网课
 #chiline()

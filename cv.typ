@@ -1,4 +1,4 @@
-#show heading: set text(font: "Linux Biolinum")
+#show heading: set text(font: "Noto Sans")
 
 #show link: underline
 
@@ -34,7 +34,7 @@ C++, Rust, Golang, Algorithm, Raft, Database
 #chiline()
 
 #link("https://net.ncepu.edu.cn/")[*NCEPU*] #h(1fr) 2016/09 -- 2020/07 \
-Bachelor of software engineering #h(1fr) Baoding \
+Bachelor of software engineering \
 
 == Work Experience
 #chiline()
