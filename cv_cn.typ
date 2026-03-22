@@ -28,20 +28,24 @@
 
 == 技能
 #chiline()
-C++, Rust, Golang, 算法, Raft, 数据库, LSM-Tree
+C/C++/Rust/Golang, Redis, Database, Raft, LSM-Tree
 
 == 教育背景
 #chiline()
 
 #link("https://net.ncepu.edu.cn/")[*华北电力大学*] #h(1fr) 2016/09 -- 2020/06 \
-本科 软件工程 \
+本科 软件工程 #h(1fr) 保定校区 \
 
 == 工作经历
 #chiline()
 
-#link("https://www.eloqdata.com/")[*EloqData*] (晨章数据) #h(1fr) 2022/11 -- 现在 \
+*Baidu ACG* (百度智能云) #h(1fr) 2025/9 -- 现在 \
+Redis内核研发 #h(1fr) 北京 \
+- 参与分布式Redis的功能开发，线上问题排查与BUG修复。组件包括 Redis/PegaDB/Proxy/MetaServer/数据迁移服务/RDB解析库。
+- 重点负责Proxy的功能开发与维护。重构工作包括：单线程Proxy改为多线程/拓扑同步。
+#link("https://www.eloqdata.com/")[*EloqData*] (晨章数据) #h(1fr) 2022/11 -- 2025/9 \
 研发工程师 #h(1fr) 北京 \
-- [C++]独立实现底层KV存储引擎 *EloqStore*。 EloqStore 采用 COW B+Tree 数据结构以实现稳定低延迟的读与高效的批量写。 COW使得读操作无须加锁。组合boost coroutine与io_uring以实现高效并发，并充分利用 NVMe SSD。实现了coroutine执行调度与并发控制。支持磁盘顺序写与随机写两种模式，生成snapshot。支持cloud模式, 同步存储到s3, 本地SSD作为缓存。读性能超过RocksDB，最高写入吞吐能达到NVMe SSD的上限。
+- [C++]孵化KV存储引擎#link("https://github.com/eloqdata/eloqstore")[github.com/eloqdata/eloqstore]。 EloqStore 采用 COW B+Tree 数据结构以实现稳定低延迟的读与高效的批量写。 COW使得读操作无须加锁。组合boost coroutine与io_uring以实现高效并发，并充分利用 NVMe SSD。实现了coroutine执行调度与并发控制。支持磁盘顺序写与随机写两种模式，生成snapshot。支持cloud模式, 同步存储到s3, 本地SSD作为缓存。读性能超过RocksDB，最高写入吞吐能达到NVMe SSD的上限。
 - [C++]独立开发 #link("https://www.eloqdata.com/docs/monosql-mysql-diff")[*MonoSQL*]. MonoSQL 是 MariaDB 与 DynamoDB 的无状态中间层，将 DynamoDB 封装为 MariaDB 的存储引擎。 实现了Repeatable-read与Read-committed两种隔离级别的transaction，二级索引，毫秒级别完成alter table。
 - [C++]独立开发CDC工具，用于从 EloqSQL 到其他分析系统(OLAP/Kafka)或备份数据库的增量实时复制。从Log-Server读取并解码WAL得到key-value修改，然后把key-value解码并转换为SQL语句，最后在下游系统执行此SQL。实现了从mariadb frm解析取得table结构，KV与SQL之间相互转换。
 - [C++]独立开发EloqSQL数据导入工具，跳过SQL层逻辑，直接向KV层(cassandra)写入。类似TiDB Lightning。
@@ -49,12 +53,14 @@ C++, Rust, Golang, 算法, Raft, 数据库, LSM-Tree
 - [Go]#link("https://github.com/monographdb/tidb")[github.com/monographdb/tidb] 二次开发 TiDB-DM 以支持通过SQL语句向EloqSQL导入数据
 - [Go]#link("https://github.com/monographdb/codis")[github.com/monographdb/codis] 二次开发 *Codis* 以兼容 EloqKV
 - [Go]#link("https://github.com/monographdb/juicefs")[github.com/monographdb/juicefs] 二次开发 *JuiceFS* 以支持 EloqKV 作为元数据存储引擎，优化了redis的 hot-key big-key以发挥分布式多线程redis的优势
-- [Shell]基于Concourse实现EloqSQL与EloqKV各种模态组合的自动化编译与发布流程。
+
+*GAP* #h(1fr) 2022/1 -- 2022/10 \
+脱产自学分布式系统和数据库知识 TinyKV MIT6.824 CMU15-445。从事个人开源项目 \
 
 #link("https://www.tap4fun.com/")[*Tap4fun*] (创人所爱) #h(1fr) 2020/03 -- 2021/12 \
 服务器开发工程师 #h(1fr) 成都 \
-- 参与游戏《Age of Apes》(猿族时代)的服务器端开发，在产品上线以前参与多项功能的实现。项目组被寄予厚望，团队达到百人规模。
-- 参与游戏《Invasion》(战地风暴，当时是公司收入支柱)的服务器端维护和开发。负责实现了"突变体"玩法，攻克了地图刷怪难题。
+- 参与游戏《Age of Apes》(猿族时代)的服务器端开发。
+- 参与游戏《Invasion》(战地风暴)的服务器端维护和开发。
 
 == 自学网课
 #chiline()
@@ -71,8 +77,9 @@ C++, Rust, Golang, 算法, Raft, 数据库, LSM-Tree
 *CMU15-721* #link("https://github.com/howz97/postgres/tree/2023-S721-P1")[github.com/howz97/postgres/tree/2023-S721-P1] \
 实验是为PostgreSQL实现foreign data wrapper以支持 columnar storage
 
-*ToyOS* #link("https://github.com/howz97/toyos")[github.com/howz97/toyos] \
-跟随 #link("https://os.phil-opp.com/")["Writing an OS in Rust"] 系列博客教学用Rust实现一个玩具操作系统
+*MIT6.1810* #link("https://github.com/howz97/xv6-labs-2024/branches/all")[github.com/howz97/xv6-labs-2024]
+
+*ToyOS* #link("https://github.com/howz97/toyos")[github.com/howz97/toyos]
 
 == 个人项目
 #chiline()
